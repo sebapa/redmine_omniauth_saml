@@ -1,4 +1,4 @@
-module Redmine::OmniAuthSAML
+module OmniauthSaml
   class << self
 
     def settings_hash
@@ -94,16 +94,16 @@ module Redmine::OmniAuthSAML
           :idp_slo_target_url,
           :name_identifier_value,
           :attribute_mapping ].each do |k|
-            raise "Redmine::OmiauthSAML.configure requires saml.#{k} to be set" unless saml[k]
+            raise "OmiauthSAML.configure requires saml.#{k} to be set" unless saml[k]
           end
 
-        raise "Redmine::OmiauthSAML.configure requires either saml.idp_cert_fingerprint or saml.idp_cert to be set" unless saml[:idp_cert_fingerprint] || saml[:idp_cert]
+        raise "OmiauthSAML.configure requires either saml.idp_cert_fingerprint or saml.idp_cert to be set" unless saml[:idp_cert_fingerprint] || saml[:idp_cert]
 
         required_attribute_mapping.each do |k|
-          raise "Redmine::OmiauthSAML.configure requires saml.attribute_mapping[#{k}] to be set" unless saml[:attribute_mapping][k]
+          raise "OmiauthSAML.configure requires saml.attribute_mapping[#{k}] to be set" unless saml[:attribute_mapping][k]
         end
 
-        raise 'Redmine::OmiauthSAML on_login must be a Proc only' if on_login_callback && !on_login_callback.is_a?(Proc)
+        raise 'OmiauthSAML on_login must be a Proc only' if on_login_callback && !on_login_callback.is_a?(Proc)
 
         @@validated_configuration = true
 
@@ -111,7 +111,7 @@ module Redmine::OmniAuthSAML
       end
 
       def raise_configure_exception
-        raise 'Redmine::OmniAuthSAML must be configured from an initializer. See README of redmine_omniauth_saml for instructions'
+        raise 'OmniauthSaml must be configured from an initializer. See README of redmine_omniauth_saml for instructions'
       end
 
       def configure_omniauth_saml_middleware
