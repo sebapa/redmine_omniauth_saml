@@ -1,4 +1,4 @@
-OmniauthSaml::Base.configure do |config|
+RedmineOmniauthSaml::Base.configure do |config|
   config.saml = {
     :assertion_consumer_service_url => "http://redmine.example.com/auth/saml/callback", # OmniAuth callback URL
     :issuer                         => "http://redmine.example.com/saml/metadata",      # The issuer name / entity ID. Must be an URI as per SAML 2.0 spec.

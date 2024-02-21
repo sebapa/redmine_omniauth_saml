@@ -16,11 +16,11 @@ class SamlController < ApplicationController
   
 private
   def saml_settings
-    OmniauthSaml.settings_hash
+    RedmineOmniauthSaml.settings_hash
   end
 
   def omniauth_saml_settings
-    OmniauthSaml.configured_saml
+    RedmineOmniauthSaml.configured_saml
   end
 end
 

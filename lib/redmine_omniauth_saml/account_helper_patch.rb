@@ -1,6 +1,6 @@
 require_dependency 'account_helper'
 
-module OmniauthSaml
+module RedmineOmniauthSaml
   module AccountHelperPatch
     def self.included(base)
       base.send(:include, InstanceMethods)
@@ -11,12 +11,12 @@ module OmniauthSaml
 
     module InstanceMethods
       def label_for_saml_login
-        OmniauthSaml.label_login_with_saml.presence || l(:label_login_with_saml)
+        RedmineOmniauthSaml.label_login_with_saml.presence || l(:label_login_with_saml)
       end
     end
   end
 end
 
-unless AccountHelper.included_modules.include? OmniauthSaml::AccountHelperPatch
-  AccountHelper.send(:include, OmniauthSaml::AccountHelperPatch)
+unless AccountHelper.included_modules.include? RedmineOmniauthSaml::AccountHelperPatch
+  AccountHelper.send(:include, RedmineOmniauthSaml::AccountHelperPatch)
 end

@@ -1,4 +1,4 @@
-module OmniauthSaml
+module RedmineOmniauthSaml
   class << self
 
     def settings_hash
@@ -111,7 +111,7 @@ module OmniauthSaml
       end
 
       def raise_configure_exception
-        raise 'OmniauthSaml must be configured from an initializer. See README of redmine_omniauth_saml for instructions'
+        raise 'RedmineOmniauthSaml must be configured from an initializer. See README of redmine_omniauth_saml for instructions'
       end
 
       def configure_omniauth_saml_middleware
